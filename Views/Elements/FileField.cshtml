@@ -1,0 +1,24 @@
+﻿@using Orchard.DisplayManagement.Shapes
+@using River.DynamicForms.Elements
+@using Orchard.Layouts.Helpers
+
+@{
+    var element = (FileField)Model.Element;
+    var tagBuilder = (OrchardTagBuilder)TagBuilderExtensions.CreateElementTagBuilder(Model, "input");
+    var name = !String.IsNullOrWhiteSpace((string)Model.ProcessedName) ? (string)Model.ProcessedName : "File1";
+
+    tagBuilder.AddCssClass("text");
+    tagBuilder.Attributes["type"] = "file";
+    tagBuilder.Attributes["value"] = "filename";
+    tagBuilder.Attributes["name"] = name;
+    tagBuilder.AddClientValidationAttributes((IDictionary<string, string>)Model.ClientValidationAttributes);
+}
+
+@if (element.ShowLabel) {
+    <label for="@element.HtmlId">@Model.ProcessedLabel</label>
+}
+@tagBuilder.ToHtmlString(TagRenderMode.SelfClosing)
+@if (element.ValidationSettings.ShowValidationMessage == true)
+{
+    @Html.ValidationMessage(name)
+}

@@ -1,0 +1,21 @@
+﻿@using River.DynamicForms.Elements
+@using Orchard.Layouts.Helpers
+@{
+    var element = (FileField)Model.Element;
+    var tagBuilder = TagBuilderExtensions.CreateElementTagBuilder(Model, "input");
+
+    tagBuilder.AddCssClass("text design");
+    tagBuilder.Attributes["type"] = "file";
+    tagBuilder.Attributes["disabled"] = "disabled";
+    tagBuilder.Attributes["name"] = element.Name;
+}
+
+@if (element.ShowLabel) {
+    <div>
+        <label for="@element.HtmlId">@element.Label</label>
+        @tagBuilder.ToHtmlString(TagRenderMode.SelfClosing)
+    </div>
+}
+else {
+    @tagBuilder.ToHtmlString(TagRenderMode.SelfClosing)
+}

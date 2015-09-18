@@ -1,0 +1,35 @@
+﻿@using Orchard.DisplayManagement.Shapes
+@using River.DynamicForms.Elements
+@using Orchard.Layouts.Helpers
+
+@{
+    Script.Require("RiverDynamicFormsElementsImageFileField").AtFoot();
+
+    var element = (FileField)Model.Element;
+    var tagBuilder = (OrchardTagBuilder)TagBuilderExtensions.CreateElementTagBuilder(Model, "input");
+    var name = !String.IsNullOrWhiteSpace((string)Model.ProcessedName) ? (string)Model.ProcessedName : "File1";
+
+    tagBuilder.AddCssClass("text");
+    tagBuilder.AddCssClass("ImageFileFieldElement");
+    tagBuilder.Attributes["style"] = "display:none";
+    tagBuilder.Attributes["type"] = "file";
+    tagBuilder.Attributes["value"] = "filename";
+    tagBuilder.Attributes["name"] = name;
+    tagBuilder.AddClientValidationAttributes((IDictionary<string, string>)Model.ClientValidationAttributes);
+}
+
+@if (element.ShowLabel) {
+    <label for="@element.HtmlId">@Model.ProcessedLabel</label>
+}
+@tagBuilder.ToHtmlString(TagRenderMode.SelfClosing)
+
+<div>
+    <p id="@(name)-filename"></p>
+    @Display.UploadImagePreview(fieldName: name + "-preview")
+</div>
+<a title="Upload an image" onclick="uploadPhoto('@name')" style="cursor:pointer">@Display.UploadImageLinkContent()</a>
+
+@if (element.ValidationSettings.ShowValidationMessage == true)
+{
+    @Html.ValidationMessage(name)
+}

@@ -1,0 +1,23 @@
+﻿Name: River Dynamic Forms Elements
+AntiForgery: enabled
+Author: River Agency
+Website: https://www.riveragency.com
+Version: 1.0
+OrchardVersion: 1.9.1
+Description: Adds extra elements and validation options to Dynamic Forms
+Category: River Tools
+Features:
+    River.DynamicForms:
+        Description: Adds extra elements and validation options to Dynamic Forms
+		Dependencies: Orchard.DynamicForms
+		Category: River Tools
+	River.DynamicForms.Elements.FileField:
+		Name: File Upload
+		Description: Adds an file upload element to Dynamic Forms
+		Category: River Forms Elements
+		Dependencies: River.DynamicForms
+	River.DynamicForms.Elements.ImageFileField:
+		Name: Image Upload
+		Description: Adds an image upload element to Dynamic Forms
+		Category: River Forms Elements
+		Dependencies: River.DynamicForms.Elements.FileField
