@@ -7,7 +7,7 @@ using Orchard.Layouts.Helpers;
 using Orchard.Tokens;
 using DescribeContext = Orchard.Forms.Services.DescribeContext;
 
-namespace River.Clarks.Drivers
+namespace River.DynamicForms.Drivers
 {
     public class TextAreaElementDriver : FormsElementDriver<TextArea>
     {

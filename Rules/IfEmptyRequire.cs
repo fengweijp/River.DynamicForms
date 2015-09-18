@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace River.Clarks.Rules
+namespace River.DynamicForms.Rules
 {
     public class IfEmptyRequire : ValidationRule
     {

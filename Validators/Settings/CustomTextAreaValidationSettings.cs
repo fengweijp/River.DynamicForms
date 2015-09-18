@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace River.Clarks.Validators.Settings
+namespace River.DynamicForms.Validators.Settings
 {
     public class CustomTextAreaValidationSettings
     {

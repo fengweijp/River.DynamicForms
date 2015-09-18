@@ -1,14 +1,14 @@
 ﻿using Orchard.DynamicForms.Elements;
 using Orchard.DynamicForms.Services;
-using River.Clarks.Rules;
-using River.Clarks.Validators.Settings;
+using River.DynamicForms.Rules;
+using River.DynamicForms.Validators.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace River.Clarks.Validators
+namespace River.DynamicForms.Validators
 {
     public class IfEmptyRequireValidator : ElementValidator<TextArea>
     {
